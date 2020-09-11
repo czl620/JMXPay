@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 s.name         = 'JMXPay'
 
 #版本号
-s.version      = '0.0.1'
+s.version      = '0.0.2'
 
 #许可证
 s.license      = { :type => 'MIT' }
@@ -37,35 +37,37 @@ s.public_header_files = 'JMXPay/JMXPay.framework/Headers/JMXPay.h'
 #依赖库
 s.frameworks   = 'UIKit','Foundation'
 
+#s.default_subspecs = 'Alipay', 'Wechat'
 
-s.default_subspec = 'Alipay', 'Wechat'
-
+s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => ''
 
 #支付宝
 s.subspec 'Alipay' do |ss|
-   ss.ios.deployment_target = '8.0'
 
-   ss.source_files = 'JMXPay/Vendors/Alipay/AlipaySDK.framework/Headers/**.h'
-   ss.public_header_files = 'JMXPay/Vendors/Alipay/AlipaySDK.framework/Headers/**.h'
+   ss.source_files = 'JMXPay/Vendors/Alipay/AlipaySDK.framework/Headers/*.h'
+   ss.public_header_files = 'JMXPay/Vendors/Alipay/AlipaySDK.framework/Headers/*.h'
    ss.resources = 'JMXPay/Vendors/Alipay/AlipaySDK.bundle'
-
-   ss.frameworks   =  'CFNetwork', 'CoreMotion', 'CoreGraphics', 'CoreTelephony', 'CoreText', 'Foundation', 'UIKit', 'SystemConfiguration',  'WebKit',
-   ss.libraries    = 'z', 'c++'
-
    ss.vendored_frameworks =  'JMXPay/Vendors/Alipay/AlipaySDK.framework'
+
+   ss.frameworks = 'CFNetwork', 'CoreMotion', 'CoreGraphics', 'CoreTelephony', 'CoreText', 'Foundation', 'UIKit', 'SystemConfiguration',  'WebKit'
+   ss.libraries = 'z', 'c++'
+
  end
+
 
 #微信
  s.subspec 'Wechat' do |ss|
-   ss.ios.deployment_target = '8.0'
 
-   ss.source_files = 'JMXPay/Vendors/Wechat/**.h'
-   ss.public_header_files = 'JMXPay/Vendors/Wechat/**.h'
+   ss.source_files = 'JMXPay/Vendors/Wechat/*.h'
+   ss.public_header_files = 'JMXPay/Vendors/Wechat/*.h'
 
-   ss.frameworks   =  'CFNetwork', 'CoreTelephony', 'Foundation', 'SystemConfiguration', 'UIKit', 'Security'
-   ss.libraries    = 'sqlite3.0', 'z'
 
-   ss.vendored_libraries = 'JMXPay/Vendors/Wechat/*.a'
+   ss.frameworks = 'Foundation', 'UIKit', 'SystemConfiguration', 'Security', 'CoreTelephony', 'CFNetwork'
+   ss.libraries = 'z', 'sqlite3.0', 'c++'
+
+   ss.requires_arc = true
+   ss.vendored_libraries = 'JMXPay/Vendors/Wechat/libWeChatSDK.a'
+
  end
 
 end
