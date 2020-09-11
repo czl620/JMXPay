@@ -39,7 +39,7 @@ s.frameworks   = 'UIKit','Foundation'
 
 #s.default_subspecs = 'Alipay', 'Wechat'
 
-s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => ''
+#s.pod_target_xcconfig = { 'VALID_ARCHS[sdk=iphonesimulator*]' => ''}
 
 #支付宝
 s.subspec 'Alipay' do |ss|
