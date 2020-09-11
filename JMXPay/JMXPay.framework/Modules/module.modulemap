@@ -1,0 +1,6 @@
+framework module JMXPay {
+  umbrella header "JMXPay.h"
+
+  export *
+  module * { export * }
+}
