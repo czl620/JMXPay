@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		3y++sUAKzaCQmjLBz2v0kvESHgc=
-		</data>
 		<key>Headers/JMXOrder.h</key>
 		<data>
 		6PXAoJiGdA26XbCJQEotLBvxvZ8=
@@ -22,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		a63vGNsqUjiEzMqWgxCZYBX8TBg=
+		s4OMfJZFDz/swB69EZF9XIcN718=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
